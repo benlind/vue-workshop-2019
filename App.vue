@@ -19,6 +19,12 @@
 
     <modal :title="modalTitle" :footer="modalFooter" :display="display">
       This is the content.
+
+      <div
+        v-if="modalFooter"
+        v-html="modalFooter"
+        slot="footer"
+        class="card-footer small text-muted"/>
     </modal>
   </div>
 </template>
@@ -32,7 +38,7 @@ export default {
     return {
       display: true,
       modalTitle: 'My Title',
-      modalFooter: null,
+      modalFooter: 'Footer',
     }
   },
 }

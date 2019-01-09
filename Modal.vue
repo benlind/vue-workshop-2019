@@ -3,17 +3,15 @@
     v-if="display"
     class="w-100 h-100 position-absolute d-flex justify-content-center align-items-center">
     <div class="card">
-      <div
-        v-if="title"
-        v-html="title"
-        class="card-header"/>
+      <slot name="header">
+        <div v-if="title" v-html="title" class="card-header"/>
+      </slot>
       <div class="card-body">
         <slot/>
       </div>
-      <div
-        v-if="footer"
-        v-html="footer"
-        class="card-footer"/>
+      <slot name="footer">
+        <div v-if="footer" v-html="footer" class="card-footer"/>
+      </slot>
     </div>
   </div>
 </template>

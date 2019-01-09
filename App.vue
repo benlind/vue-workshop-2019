@@ -17,7 +17,12 @@
       </form>
     </div>
 
-    <modal :title="modalTitle" :footer="modalFooter" :display="display">
+    <modal
+      :title="modalTitle"
+      :footer="modalFooter"
+      :display="display"
+      @close="display = false">
+
       This is the content.
 
       <div

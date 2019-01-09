@@ -21,9 +21,10 @@
       This is the content.
 
       <div
-        v-if="modalFooter"
-        v-html="modalFooter"
         slot="footer"
+        slot-scope="{ footer }"
+        v-if="footer"
+        v-html="footer"
         class="card-footer small text-muted"/>
     </modal>
   </div>

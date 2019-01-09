@@ -7,9 +7,9 @@
         v-if="title"
         v-html="title"
         class="card-header"/>
-      <div
-        v-html="body"
-        class="card-body"/>
+      <div class="card-body">
+        <slot/>
+      </div>
       <div
         v-if="footer"
         v-html="footer"
@@ -22,10 +22,6 @@
 export default {
   props: {
     title: String,
-    body: {
-      type: String,
-      required: true,
-    },
     footer: String,
     display: Boolean,
   }

@@ -11,21 +11,15 @@
           <input class="col-6 form-control form-control-sm" type="text" v-model="modalTitle"/>
         </div>
         <div class="form-group row">
-          <label class="col-2 col-form-label col-form-label-sm">Content</label>
-          <textarea class="col-6 form-control form-control-sm" v-model="modalContent"/>
-        </div>
-        <div class="form-group row">
           <label class="col-2 col-form-label col-form-label-sm">Footer</label>
           <input class="col-6 form-control form-control-sm" type="text" v-model="modalFooter"/>
         </div>
       </form>
     </div>
 
-    <modal
-      :title="modalTitle"
-      :body="modalContent"
-      :footer="modalFooter"
-      :display="display" />
+    <modal :title="modalTitle" :footer="modalFooter" :display="display">
+      This is the content.
+    </modal>
   </div>
 </template>
 
@@ -37,9 +31,8 @@ export default {
   data: () => {
     return {
       display: true,
-      modalContent: 'Modal Content',
       modalTitle: 'My Title',
-      modalFooter: '(Footer)',
+      modalFooter: null,
     }
   },
 }

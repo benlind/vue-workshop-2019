@@ -20,13 +20,14 @@
 
 <script>
 export default {
-  data: function() {
-    return {
-      title:   'Title (data)',
-      body:    'Body (from data)',
-      footer:  'Footer (from data)',
-      display: true,
-    }
+  props: {
+    title: String,
+    body: {
+      type: String,
+      required: true,
+    },
+    footer: String,
+    display: Boolean,
   }
 }
 </script>

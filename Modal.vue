@@ -2,7 +2,7 @@
   <div
     v-if="display"
     class="w-100 h-100 position-absolute d-flex justify-content-center align-items-center">
-    <div class="card">
+    <div class="card" v-bind="$props">
       <slot name="header" :title="title">
         <div v-if="title" class="card-header">
           <span v-html="title"/>

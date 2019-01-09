@@ -10,20 +10,18 @@
           <label class="col-2 col-form-label col-form-label-sm">Title</label>
           <input class="col-6 form-control form-control-sm" type="text" v-model="modalTitle"/>
         </div>
-        <div class="form-group row">
-          <label class="col-2 col-form-label col-form-label-sm">Footer</label>
-          <input class="col-6 form-control form-control-sm" type="text" v-model="modalFooter"/>
-        </div>
       </form>
     </div>
 
-    <modal
+    <confirmation-dialog style="width: 450px"
       :title="modalTitle"
-      :footer="modalFooter"
       :display="display"
-      @close="display = false">
+      @close="cancel"
+      @cancel="cancel"
+      @confirm="confirm">
 
-      This is the content.
+      <p>This operation <b>cannot be undone</b>.</p>
+      <p>Are you sure you want to proceed?</p>
 
       <div
         slot="footer"
@@ -31,22 +29,25 @@
         v-if="footer"
         v-html="footer"
         class="card-footer small text-muted"/>
-    </modal>
+    </confirmation-dialog>
   </div>
 </template>
 
 <script>
-import Modal from './Modal'
+import ConfirmationDialog from './ConfirmationDialog'
 
 export default {
-  components: { Modal },
+  components: { ConfirmationDialog },
   data: () => {
     return {
       display: true,
-      modalTitle: 'My Title',
-      modalFooter: 'Footer',
+      modalTitle: 'Confirm',
     }
   },
+  methods: {
+    cancel()  { window.console.log("Canceled!");  this.display = false },
+    confirm() { window.console.log("Confirmed!"); this.display = false },
+  }
 }
 </script>
 
